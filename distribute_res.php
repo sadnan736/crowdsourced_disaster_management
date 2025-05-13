@@ -1,11 +1,13 @@
 <?php
 session_start();
 
+// Check if volunteer is logged in
 if (!isset($_SESSION['volunteer_id'])) {
     header("Location: login.html");
     exit();
 }
 
+// Database connection
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -47,6 +49,8 @@ if (!$resources) {
     exit();
 }
 
+$insufficient_resources = false;
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $med = $_POST['med'] ?? 0;
     $liq = $_POST['liq'] ?? 0;
@@ -67,69 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "Error distributing resources: " . $conn->error;
         }
     } else {
-        echo "
-        <script>
-            if (confirm('Not enough supplies, source from other hubs around Dhaka?')) {
-                window.location.href = 'distribute_res.php?source=other_hubs&report_id=$report_id';
-            } else {
-                alert('Resource distribution aborted.');
-            }
-        </script>
-        ";
-    }
-}
-
-if (isset($_GET['source']) && $_GET['source'] == 'other_hubs') {
-    $total_needed_med = $_POST['med'];
-    $total_needed_liq = $_POST['liq'];
-    $total_needed_dry = $_POST['dry'];
-
-    $sql_other_hubs = "
-        SELECT * FROM resources WHERE hub_id != '{$report['hub_id']}' AND hub_id IN (
-            SELECT hub_id FROM hub WHERE division = '{$report['division']}'
-        )
-    ";
-
-    $other_hubs_result = $conn->query($sql_other_hubs);
-
-    while ($other_hub = $other_hubs_result->fetch_assoc()) {
-        if ($total_needed_med > 0) {
-            $med_taken = min($total_needed_med, $other_hub['medicide_unit']);
-            $total_needed_med -= $med_taken;
-            $other_hub['medicide_unit'] -= $med_taken;
-        }
-
-        if ($total_needed_liq > 0) {
-            $liq_taken = min($total_needed_liq, $other_hub['liquid_unit']);
-            $total_needed_liq -= $liq_taken;
-            $other_hub['liquid_unit'] -= $liq_taken;
-        }
-
-        if ($total_needed_dry > 0) {
-            $dry_taken = min($total_needed_dry, $other_hub['dry_food_unit']);
-            $total_needed_dry -= $dry_taken;
-            $other_hub['dry_food_unit'] -= $dry_taken;
-        }
-
-        $sql_update_other_hub = "
-            UPDATE resources
-            SET medicide_unit = {$other_hub['medicide_unit']},
-                liquid_unit = {$other_hub['liquid_unit']},
-                dry_food_unit = {$other_hub['dry_food_unit']}
-            WHERE hub_id = '{$other_hub['hub_id']}'
-        ";
-
-        $conn->query($sql_update_other_hub);
-
-        if ($total_needed_med <= 0 && $total_needed_liq <= 0 && $total_needed_dry <= 0) {
-            break;
-        }
-    }
-
-    if ($total_needed_med <= 0 && $total_needed_liq <= 0 && $total_needed_dry <= 0) {
-        echo "Resources successfully sourced and distributed!";
-    } else {
-        echo "Failed to source enough resources from other hubs.";
+        $insufficient_resources = true;
     }
 }
 ?>
@@ -137,9 +79,13 @@ if (isset($_GET['source']) && $_GET['source'] == 'other_hubs') {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Distribute Resources</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="dis.css">
+</head>
 </head>
 <body>
     <h3>Distribute Resources for Report: <?php echo $report['name']; ?></h3>
@@ -158,6 +104,10 @@ if (isset($_GET['source']) && $_GET['source'] == 'other_hubs') {
 
         <button type="submit">Distribute</button>
     </form>
+
+    <?php if ($insufficient_resources): ?>
+        <h4>Not enough supplies in your hub.</h4>
+    <?php endif; ?>
 
 </body>
 </html>
