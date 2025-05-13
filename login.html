@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="dis.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar sidebarGo">
+            <i class="fa fa-close" id="close"></i>
+            <nav>
+                <ul>
+                     <li><a href="http://localhost/crowdsource_disaster_management/index.html">Home</a></li>
+                    <li><a href="http://localhost/crowdsource_disaster_management/services.html">Services</a></li>
+                    <li><a href="http://localhost/crowdsource_disaster_management/login.html">Login</a></li>
+                    <li><a href="http://localhost/crowdsource_disaster_management/hub.html">Hub Details</a></li>
+                    <li><a href="http://localhost/crowdsource_disaster_management/about.html">About</a></li>
+                    <li><a href="http://localhost/crowdsource_disaster_management/contact.html">Contact</a></li>
+                    <li><a href="http://localhost/crowdsource_disaster_management/donate.html">Donate Here</a></li>
+                </ul>
+            </nav>    
+        </div>
+
+        <div class="main">
+            <i class="fa fa-bars" id="menu"></i>
+            <div class="info">
+                <div class="devinfo">
+                    <div class="hello">Login</div>
+                    <form action="login.php" method="POST">
+                        <div class="name">ID: <input class="inp" type="text" name="user_id" required></div>
+                        <div class="number">Password: <input class="inp" type="password" name="password" required></div>
+                        <div class="btn">
+                            <button type="submit"><i class="fa fa-download"></i> Submit</button>
+                            <button type="button" onclick="window.location.href='http://localhost/crowdsource_disaster_management/regi.html'">Register as a volunteer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="dis.js"></script>
+</body>
+</html>

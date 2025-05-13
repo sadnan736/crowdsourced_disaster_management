@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="dis.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar sidebarGo" >
+            <i class="fa fa-close" id="close"></i>
+            
+            <nav>
+                <ul>
+                     <li><a href="http://localhost/crowdsource_disaster_management/index.html">Home</a></li>
+                    <li><a href="http://localhost/crowdsource_disaster_management/services.html">Services</a></li>
+                    <li><a href="http://localhost/crowdsource_disaster_management/login.html">Login</a></li>
+                    <li><a href="http://localhost/crowdsource_disaster_management/hub.html">Hub Details</a></li>
+                    <li><a href="http://localhost/crowdsource_disaster_management/about.html">About</a></li>
+                    <li><a href="http://localhost/crowdsource_disaster_management/contact.html">Contact</a></li>
+                    <li><a href="http://localhost/crowdsource_disaster_management/donate.html">Donate Here</a></li>
+                </ul>
+            </nav>    
+        </div>
+        
+        <div class="main">
+            <i class="fa fa-bars" id="menu"></i>
+            
+            <div class="info">
+                <div class="pic"></div>
+                <div class="devinfo">
+                    <form action="http://localhost/crowdsource_disaster_management/report_submission.php" method="POST" onsubmit="return validateForm()">
+                        <div class="divis">Division:
+                            <select class="add" id="di" name="division" required>
+                                <option value="none">Choose a division</option>
+                                <option value="Dhaka">Dhaka</option>
+                                <option value="Faridpur">Faridpur</option>
+                                <option value="Gazipur">Gazipur</option>
+                                <option value="Gopalganj">Gopalganj</option>
+                                <option value="Kishoreganj">Kishoreganj</option>
+                                <option value="Madaripur">Madaripur</option>
+                                <option value="Manikganj">Manikganj</option>
+                                <option value="Munshiganj">Munshiganj</option>
+                                <option value="Narsingdi">Narsingdi</option>
+                                <option value="Narayanganj">Narayanganj</option> 
+                                <option value="Rajbari">Rajbari</option>
+                                <option value="Tangail">Tangail</option>
+                                <option value="Shariatpur">Shariatpur</option>
+                            </select>
+                        </div>
+                        <div class="name">Name: 
+                            <input class="inp" id="nm" name="name" type="text" required>
+                        </div>
+                        <div class="number">Number: 
+                            <input class="inp" id="no" name="number" type="text" required>
+                        </div>
+                        <div class="type">Disaster Type: 
+                            <select class="add" id="ty" name="disaster_type" required>
+                                <option value="none">Choose a disaster</option>
+                                <option value="Earthquake">Earthquake</option>
+                                <option value="Flood">Flood</option>
+                                <option value="River Erosion">River Erosion</option>
+                                <option value="Cyclone">Cyclone</option>
+                                <option value="Landslide">Landslide</option>
+                            </select>
+                        </div>
+                        <div class="btn">
+                            <button type="submit"><i class="fa fa-download"></i> Submit </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var division = document.getElementById("di").value;
+            var name = document.getElementById("nm").value;
+            var number = document.getElementById("no").value;
+            var disasterType = document.getElementById("ty").value;
+
+            if (division === "none" || !name || !number || disasterType === "none") {
+                alert("All fields are required.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="dis.js"></script>
+</body>
+</html>

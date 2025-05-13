@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate Here</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="dis.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="sidebar sidebarGo">
+            <i class="fa fa-close" id="close"></i>
+
+            <nav>
+                <ul>
+                    <li><a href="http://localhost/crowdsource_disaster_management/index.html">Home</a></li>
+                    <li><a href="http://localhost/crowdsource_disaster_management/services.html">Services</a></li>
+                    <li><a href="http://localhost/crowdsource_disaster_management/login.html">Login</a></li>
+                    <li><a href="http://localhost/crowdsource_disaster_management/hub.html">Hub Details</a></li>
+                    <li><a href="http://localhost/crowdsource_disaster_management/about.html">About</a></li>
+                    <li><a href="http://localhost/crowdsource_disaster_management/contact.html">Contact</a></li>
+                    <li><a href="http://localhost/crowdsource_disaster_management/donate.html">Donate Here</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="main">
+            <i class="fa fa-bars" id="menu"></i>
+
+            <div class="info">
+
+                <div class="pic"></div>
+                <div class="devinfo">
+                    <h2>Donate Here</h2>
+                    <form class="registrationForm" action="donate_process.php" method="POST">
+                        <label for="name" class="d">Name :</label>
+                        <input type="text" class="inp" name="name" placeholder="Enter your name" required>
+
+                        <label for="nid" class="d">NID :</label>
+                        <input type="text" class="inp" name="nid" placeholder="Enter your NID" required>
+                        
+                        <label for="division" class="d">Division :</label>
+                        <select class="add" id="di" name="division" required>
+                            <option value="none">Choose a division</option>
+                            <option value="Dhaka">Dhaka</option>
+                            <option value="Faridpur">Faridpur</option>
+                            <option value="Gazipur">Gazipur</option>
+                            <option value="Gopalganj">Gopalganj</option>
+                            <option value="Kishoreganj">Kishoreganj</option>
+                            <option value="Madaripur">Madaripur</option>
+                            <option value="Manikganj">Manikganj</option>
+                            <option value="Munshiganj">Munshiganj</option>
+                            <option value="Narsingdi">Narsingdi</option>
+                            <option value="Narayanganj">Narayanganj</option> 
+                            <option value="Rajbari">Rajbari</option>
+                            <option value="Tangail">Tangail</option>
+                            <option value="Shariatpur">Shariatpur</option>
+                        </select>
+
+                        <label for="med" class="d">Medicine Unit :</label>
+                        <input type="text" class="inp" name="med" placeholder="Enter amount" required>
+
+                        <label for="liq" class="d">Liquid Unit :</label>
+                        <input type="text" class="inp" name="liq" placeholder="Enter in Litre" required>
+
+                        <label for="dry" class="d">Dry Food Unit :</label>
+                        <input type="text" class="inp" name="dry" placeholder="Enter amount" required>
+
+                        <div class="btn">
+                            <button>Donate</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="dis.js"></script>
+
+</body>
+
+</html>

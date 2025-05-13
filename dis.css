@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Playwrite+DK+Uloopet:wght@100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Mono+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Playwrite+DK+Uloopet:wght@100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Mono+One&family=Stalinist+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Playwrite+DK+Uloopet:wght@100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Mono+One&family=Silkscreen:wght@400;700&family=Stalinist+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Orbitron:wght@400..900&family=Playwrite+DK+Uloopet:wght@100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Mono+One&family=Silkscreen:wght@400;700&family=Stalinist+One&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.sidebar{
+    background-color: black;
+    color: white;
+    width: 288px;
+    position: absolute;
+    height: 100vh;
+    
+    font-family: "Rubik Mono One", serif;
+    transition: transform 0.3s ease-in;
+
+    z-index: 1000;
+}
+
+.sidebar nav{
+    padding: 30px;
+    margin-top: 50px;
+    
+}
+
+.sidebar nav li{
+    font-size: 22px;
+    list-style: none;
+    padding: 17px 0;
+    color: #c69e7b;
+   
+}
+
+.sidebar nav li a{
+    text-decoration: none;
+    color: #c69e7b;
+}
+
+
+.main{
+    width: 100vw;
+    
+    height:100vh;
+    transition: filter 0.03s ease-in;
+    background: url('composition-still-life-friendship-day-elements.jpg') no-repeat center center/cover;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.8;
+    caret-color: transparent;
+}
+ 
+
+.add{
+
+    color: #c69e7b;
+    background-color: black;
+    height: 30px;
+    margin: 5px;
+    border-radius: 12px;
+    padding: 3px;
+    vertical-align: middle;
+}
+
+
+
+.info{
+    
+    
+    width: 70vw;
+    margin: 140px auto;
+    height: 60vh;
+    display: flex;
+    justify-content:space-around;
+    
+}
+
+.pic img {
+    
+    filter: drop-shadow(10px 10px 10px #222);
+    border-radius: 590px;
+    height: 42vh;
+    border: 5px solid  #397d8d ;
+    
+    
+}
+    
+
+
+.devinfo{
+    width: 70vw;
+    display: flex;
+    
+    flex-direction: column;
+    margin-left: 350px;
+    justify-content: center;
+}
+
+.txt{
+    font-size: 5vw;
+    font-family: "Stalinist One", serif;
+    color: black;
+}
+
+h2{
+    margin: 10px;
+    padding: 5px;
+    font-size: 5vw;
+
+
+}
+
+
+
+.registrationForm{
+
+    
+    display: flex;
+    justify-content: center ;
+    flex-direction: column;
+}
+
+.d{
+    font-size: 1vw;
+    color: black;
+    font-family: "Stalinist One", serif;
+}
+    
+
+.divis{
+    font-size: 2vw;
+    color: black;
+    font-family: "Stalinist One", serif;
+    
+}
+
+.name{
+    font-size: 2vw;
+    font-family: "Stalinist One", serif;
+    color: black
+}
+   
+
+.number{
+    font-size: 2vw;
+    font-family: "Stalinist One", serif;
+    color: black;
+
+}
+
+.inp{
+    color: #c69e7b;
+    background-color: black;
+    height: 30px;
+    margin: 5px;
+    border-radius: 12px;
+    text-align: center;
+    vertical-align: middle;
+    caret-color: #c69e7b;   
+}
+
+
+.btn{
+    padding-top: 50px;
+}
+
+.btn button{
+    align-items: left;
+    padding: 20px;
+    font-size: 20px;
+    border-radius: 35px;
+    margin-right: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: "Orbitron", serif;
+    background-color: #000000;
+    color: #c89666;
+    border: 2px solid #c89666;
+    
+    
+       
+}
+
+.btn button:hover{
+    background-color:#c89666;
+    color: black;
+    border: 2px solid black;
+    transition-delay: 0.04s ease-in;
+   
+}
+
+
+.container{
+    display: flex;
+}
+
+.hello{
+    font-size: 5vw;
+    color: black;
+    font-family: "Stalinist One", serif;    
+
+}
+
+table{
+    border: 4px;
+    border-color: #c89666;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: black;
+    color:#c89666 ;
+    border-radius: 20px;
+    overflow: hidden;
+    opacity: 0.8;
+}
+
+th{
+    width: 100px;
+    height: 10px;
+    text-align: center;
+    text-decoration:double;
+    color: aqua;
+    
+    
+}
+
+td{
+    height: 2vh ;
+    text-align: center;
+  
+
+}
+
+
+
+#registrationForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/*@media (max-width:1355px) {
+    .info{
+        flex-direction: column;
+        align-items: center;
+        margin-top: 88px; 
+
+    }
+
+    .devinfo{
+        margin: 60px;
+    }
+
+    .name{
+        font-size: 3vw;
+    }
+
+    .hello{
+        font-size: 3vw;
+    }
+
+    .number{
+        font-size: 2.5vw;
+    }
+
+    .btn button{
+
+        font-size: 20px;
+        padding: 22px;
+    }
+
+    .btn{
+
+        padding-top: 45px;
+    }
+
+}
+
+
+
+
+@media (max-width: 950px) {
+    .pic img{
+        height: 100%;
+        width: 100%;
+
+    }
+
+    .btn button{
+
+        font-size: 14px;
+        padding: 18px;
+    }
+
+    .name{
+        font-size: 3.5vw;
+    }
+
+    .hello{
+        font-size: 3.5vw;
+    }
+
+    .number{
+        font-size: 3.5vw;
+    }
+}*/
+
+#menu{
+    position: absolute;
+    color:black;
+    font-size: 30px;
+    top: 20px;
+    left: 30px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#close{
+    position: absolute;
+    color:#c89666;
+    font-size: 30px;
+    top: 20px;
+    left: 230px;
+    cursor: pointer;
+
+    z-index: 1000;
+}
+
+#close:hover{
+    color: white
+
+}
+
+#menu:hover{
+    color: white
+
+}
+
+.sidebarGo{
+    position: absolute;
+    transform: translate(-291px, 0px);
+}
+
+.mainBlur{
+    filter: blur(5px); 
+    
+
+}
